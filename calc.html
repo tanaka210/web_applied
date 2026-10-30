@@ -1,0 +1,12 @@
+  <body>
+    <button onclick="add()">足し算する</button>
+    <script>
+      function add() {
+        const a = prompt("1つ目の数を入力してください");
+        const b = prompt("2つ目の数を入力してください");
+        const answer = Number(a) + Number(b);
+        console.log(`${a} + ${b} = ${answer}`);
+        alert(`答えは ${answer} です`);
+      }
+    </script>
+  </body>
