@@ -14,23 +14,30 @@ function update(dt) {
   x = x + vx * dt;
   y = y + vy * dt;
 
-  // 左右の壁（丸は x が中心なので、半径 r を足し引きする）
+  // 左右の壁
   if (x + r > canvas.width) {
     x = canvas.width - r;
     vx = -vx;
+    color = "#06d6a0";  // 色を緑に変更
   }
+
   if (x - r < 0) {
     x = r;
     vx = -vx;
+    color = "#ff6b6b";  // 色を赤に変更
   }
+
   // 上下の壁
   if (y + r > canvas.height) {
     y = canvas.height - r;
     vy = -vy;
+    color = "#a78bfa";  // 色を紫に変更
   }
+
   if (y - r < 0) {
     y = r;
     vy = -vy;
+    color = "#ffd166";  // 色を黄色に変更
   }
 }
 
