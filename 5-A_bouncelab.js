@@ -6,7 +6,8 @@ let x = 100;          // 丸の中心の位置
 let y = 80;
 let vx = 180;         // 横の速さ（1秒に180px）
 let vy = 140;         // 縦の速さ（1秒に140px。＋ は下へ）
-const r = 14;         // 半径
+let r = 14;         // 半径
+let color = "#ffd166";　//色
 let last = performance.now();
 
 function update(dt) {
@@ -35,7 +36,7 @@ function update(dt) {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "#ffd166";
+  ctx.fillStyle = color;
   ctx.beginPath();
   ctx.arc(x, y, r, 0, Math.PI * 2);
   ctx.fill();
@@ -52,5 +53,43 @@ function loop(now) {
   draw();
   requestAnimationFrame(loop);
 }
+
+document.addEventListener("keydown", (e) => {
+
+  // 押しっぱなしによる連続実行を防ぐ
+  if (e.repeat) return;
+
+  // ↑：速さを1.2倍
+  if (e.code === "ArrowUp") {
+    vx = vx * 1.2;
+    vy = vy * 1.2;
+  }
+
+  // ↓：速さを0.8倍
+  if (e.code === "ArrowDown") {
+    vx = vx * 0.8;
+    vy = vy * 0.8;
+  }
+
+  // ←：ボールを小さくする
+  if (e.code === "ArrowLeft") {
+    r = Math.max(2, r - 2);
+  }
+
+  // →：ボールを大きくする
+  if (e.code === "ArrowRight") {
+    r = r + 2;
+  }
+
+  // C：ボールの色を変更する
+  if (e.code === "KeyC") {
+    if (color === "#ffd166") {
+      color = "#06d6a0";
+    } else {
+      color = "#ffd166";
+    }
+  }
+
+});
 
 requestAnimationFrame(loop);
