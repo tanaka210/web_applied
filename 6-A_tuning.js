@@ -3,8 +3,8 @@ const ctx = canvas.getContext("2d");
 
 // 調整する数（ここだけを変えて試す）
 const CONFIG = {
-  GRAVITY: 2000,
-  JUMP_SPEED: 700,
+  GRAVITY: 3000,
+  JUMP_SPEED: 1200,
   MOVE_SPEED: 240,
   MAX_JUMPS: 2,
   FALL_GRAVITY_RATE: 2,
