@@ -105,7 +105,7 @@ function updatePlayer(dt) {
   if (player.vx < 0) {
     player.facing = -1;
   }
- player.facing = player.vx > 0 ? 1 : -1;
+
   // 重力で落とす
   const g = player.vy > 0
     ? GRAVITY * FALL_GRAVITY_RATE
