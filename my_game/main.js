@@ -2,7 +2,7 @@
 
 // 役割ごとの「動かす」関数を呼ぶ
 function update(dt) {
-  //updatePlayer(dt);
+  updatePlayer(dt);
 }
 
 // 役割ごとの「描く」関数を呼ぶ
